@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>Get started with MapView - Create a 2D map</title>
+		<style>
+			html,
+			body,
+			#viewDiv {
+				padding: 0;
+				margin: 0;
+				height: 100%;
+				width: 100%;
+			}
+		</style>
+		<link rel="stylesheet" href="https://js.arcgis.com/4.3/esri/css/main.css">
+		<script src="https://js.arcgis.com/4.3/"></script>
+		<script>
+			require([
+				"esri/Map",				//使用这个模块来创建一个地图
+				"esri/views/MapView",	//加载2d界面的地图（使用2D的视角来查看地图）
+				"dojo/domReady!"		//确保DOM可执行代码
+			], function(Map, MapView) {
+				var map = new Map({
+					basemap: "osm"	//指定地图的类型
+					//其他地图类型有: 
+					//dark-gray				--		深灰色（可用于背景）
+					//dark-gray-vector		--		深灰色（更少的描述）
+					//gray					--		亮灰色（除颜色更浅之外其他同dark-gray）
+					//gray-vector			--		亮灰色（更少的描述）
+					//hybrid				--		混合模式（卫星地图、城市名等）
+					//national-geographic	--		国家地理基础图（多用于参考地图信息和教育）
+					//oceans				--		更多的海洋数据
+					//osm					--		公开街道地图（作为各种地图的技术和应用程序）
+				});
+				var view = new MapView({
+					container: "viewDiv", // Reference to the scene div created in step 5
+					map: map, // Reference to the map object created before the scene
+					zoom: 4, // Sets the zoom level based on level of detail (LOD)
+					center: [15, 65] // Sets the center point of view in lon/lat
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<div id="viewDiv"></div>
+	</body>
+
+</html>
