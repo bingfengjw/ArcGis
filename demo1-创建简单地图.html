@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		  html, body, #map {
+		    height: 100%;
+		    padding: 0;
+		    margin: 0;
+		  }
+		</style>
+		<link rel="stylesheet" href="https://js.arcgis.com/3.20/esri/css/esri.css">
+		<script src="https://js.arcgis.com/3.20/"></script>
+		<script type="text/javascript">
+			require(["esri/map", "dojo/domReady!"], function(Map) {
+				//使用esri/map模块来创建一个地图
+				//使用dojo/DOMReady确保dom可执行代码
+			  var map = new Map("map", {
+			    center: [-118, 34.5],
+			    zoom: 8,
+			    basemap: "topo"			//地图类型
+			    //其他地图类型有: 
+					//dark-gray				--		深灰色（可用于背景）
+					//dark-gray-vector		--		深灰色（更少的描述）
+					//gray					--		亮灰色（除颜色更浅之外其他同dark-gray）
+					//gray-vector			--		亮灰色（更少的描述）
+					//hybrid				--		混合模式（卫星地图、城市名等）
+					//national-geographic	--		国家地理基础图（多用于参考地图信息和教育）
+					//oceans				--		更多的海洋数据
+					//osm					--		公开街道地图（作为各种地图的技术和应用程序）
+			  });
+			});
+		</script>
+	</head>
+	<body class="claro">
+	  <div id="map"></div>
+	</body>
+</html>
